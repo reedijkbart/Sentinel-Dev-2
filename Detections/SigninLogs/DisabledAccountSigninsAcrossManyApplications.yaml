@@ -10,9 +10,6 @@ requiredDataConnectors:
   - connectorId: AzureActiveDirectory
     dataTypes:
       - SigninLogs
-  - connectorId: AzureActiveDirectory
-    dataTypes:
-      - AADNonInteractiveUserSignInLogs
 queryFrequency: 1d
 queryPeriod: 1d
 triggerOperator: gt
@@ -34,8 +31,7 @@ query: |
   | extend timestamp = StartTime, AccountCustomEntity = UserPrincipalName, IPCustomEntity = IPAddress
   };
   let aadSignin = aadFunc("SigninLogs");
-  let aadNonInt = aadFunc("AADNonInteractiveUserSignInLogs");
-  union isfuzzy=true aadSignin, aadNonInt
+  aadSignin
 entityMappings:
   - entityType: Account
     fieldMappings:
