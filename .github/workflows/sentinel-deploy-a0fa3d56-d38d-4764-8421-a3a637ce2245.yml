@@ -14,7 +14,6 @@ on:
     branches: [ master ]
     paths:
     - '**'
-    - 'Detections/SigninLogs/**'
     - '!.github/workflows/**'  # this filter prevents other workflow changes from triggering this workflow
     - '.github/workflows/sentinel-deploy-a0fa3d56-d38d-4764-8421-a3a637ce2245.yml'
 
