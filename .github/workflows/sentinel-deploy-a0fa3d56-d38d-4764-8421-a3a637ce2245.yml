@@ -11,7 +11,7 @@ name: Deploy Content to development-workspace [a0fa3d56-d38d-4764-8421-a3a637ce2
 
 on: 
   push:
-    branches: [ master ]
+    branches: [ MicrosoftSentinel ]
     paths:
     - '**'
     - 'Detections/SigninLogs/**'
