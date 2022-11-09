@@ -1,5 +1,5 @@
-# Each pull request that updates ASimDns, ASimNetworkSession, or ASimWebSession parsers triggers the script.
-# The script generates deployable ARM templates based on ASim parsers YAML files and pushes them to the pull request branch.
+# GitHub action template from Azure-Sentinel repo, modified to be able to work for analytics rule yaml to arm.
+
 name: Convert Kql function yaml to ARM template
 on:
   pull_request:
@@ -45,9 +45,9 @@ jobs:
             git merge --abort
             exit 1
           fi
-      - name: Run kqlFuncYaml2Arm script
+      - name: Run script
         run: |
-          .script/kqlFuncYaml2Arm.ps1
+          .script/ConvertAnalyticsRuleFromYamlToArm.ps1
         shell: pwsh  
       - name: Commit changes
         run: |
