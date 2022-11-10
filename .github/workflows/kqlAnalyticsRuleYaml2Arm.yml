@@ -41,7 +41,7 @@ jobs:
       - name: Commit changes
         run: |
           # Stage the files and commit
-          git add Detections/*
+          git add -A
           if git diff --staged --quiet; then
             echo "armTemplatesChanged=false" >> $GITHUB_ENV
             echo "Arm templates didn't changed, no changes to commit"
