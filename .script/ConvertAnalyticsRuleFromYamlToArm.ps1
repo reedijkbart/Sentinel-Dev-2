@@ -106,9 +106,11 @@ function ConvertAnalyticsRuleFromYamlToArm {
 
 Set-PSRepository PSGallery -InstallationPolicy Trusted
 Install-Module PowerShell-yaml
+
 $newDirectory = New-Item -ItemType Directory -Path "Detections/SigninLogs/dir2"
+
 foreach($parserYaml in $(Get-Item ***/*.yaml))
 {
      $outputFilePath = "$($newDirectory.FullName)/$($parserYaml.BaseName).json"
-     ./ConvertAnalyticsRuleFromYamlToArm $parserYaml.FullName $outputFilePath
+     ConvertAnalyticsRuleFromYamlToArm Detections/SigninLogs/DisabledAccountSigninsAcrossManyApplications.yaml $outputFilePath
 }
