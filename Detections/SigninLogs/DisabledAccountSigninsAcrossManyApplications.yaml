@@ -20,7 +20,7 @@ relevantTechniques:
   - T1078
 query: |
 
-  let threshold = 3;
+  let threshold = 4;
   let aadFunc = (tableName:string){
   table(tableName)
   | where ResultType == "50057"
