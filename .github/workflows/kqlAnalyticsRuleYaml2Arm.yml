@@ -2,13 +2,11 @@
 
 name: Convert Kql function yaml to ARM template
 on:
+  push:
+    branches: ["master"]
   pull_request:
     types: [opened, edited, reopened, synchronize, labeled]
-    paths:
-       - 'Parsers/ASimDns/Parsers/**'
-       - 'Parsers/ASimNetworkSession/Parsers/**'
-       - 'Parsers/ASimWebSession/Parsers/**'
-       - 'Parsers/ASimProcessEvent/Parsers/**'
+    
 jobs:
   kqlFuncYaml2Arm:
     # The workflow should not run on forked repositories for security reasons
