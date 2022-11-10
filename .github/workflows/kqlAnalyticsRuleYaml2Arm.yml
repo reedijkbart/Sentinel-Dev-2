@@ -50,13 +50,13 @@ jobs:
       - name: Commit changes
         run: |
           # Stage the files and commit
-          git add Parsers/*
+          git add Detections/*
           if git diff --staged --quiet; then
             echo "armTemplatesChanged=false" >> $GITHUB_ENV
             echo "Arm templates didn't changed, no changes to commit"
           else
             echo "armTemplatesChanged=true" >> $GITHUB_ENV
-            git commit -m '[ASIM Parsers] Generate deployable ARM templates from KQL function YAML files.'
+            git commit -m 'Generate deployable ARM templates from KQL function YAML files.'
             echo "Arm templates were changed. Changes were committed"
           fi
       - name: Push changes
@@ -71,7 +71,7 @@ jobs:
         if: ${{ env.armTemplatesChanged == 'true' }}
         with:
           message: |
-            ASIM parsers have been changed. ARM templates were regenerated from the updated KQL function YAML files.
+            ARM templates were regenerated from the updated KQL function YAML files.
             To find the new ARM templates, pull your branch.
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           repo-token-user-login: 'github-actions[bot]' # The user.login for temporary GitHub tokens
