@@ -36,7 +36,7 @@ jobs:
           git config --local user.email "<>"
       - name: Run script
         run: |
-          .script/ConvertAnalyticsRuleFromYamlToArm.ps1
+          .script/ConvertAnalyticsRuleFromYamlToArm.ps1 -inputFilePath 'Detections/SigninLogs' -outputFilePath 'Detections/SigninLogs'
         shell: pwsh  
       - name: Commit changes
         run: |
