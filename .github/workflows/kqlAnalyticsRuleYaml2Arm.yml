@@ -51,10 +51,7 @@ jobs:
         run: |
           # Stage the files and commit
           git add Detections/*
-          if git diff --staged --quiet; then
-            echo "armTemplatesChanged=false" >> $GITHUB_ENV
-            echo "Arm templates didn't changed, no changes to commit"
-          else
+          
             echo "armTemplatesChanged=true" >> $GITHUB_ENV
             git commit -m 'Generate deployable ARM templates from KQL function YAML files.'
             echo "Arm templates were changed. Changes were committed"
