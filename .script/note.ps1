@@ -1,5 +1,5 @@
 Install-Module PowerShell-yaml
-Import-Module .script/ConvertAnalyticsRuleFromYamlToArm.ps1
+Import-Module ./.script/ConvertAnalyticsRuleFromYamlToArm.ps1
 
 $Homepath = "Detections"
 $Outpath  = "Detections/JSON"
