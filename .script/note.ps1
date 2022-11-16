@@ -1,3 +1,4 @@
+Set-PSRepository PSGallery -InstallationPolicy Trusted
 Install-Module PowerShell-yaml
 Import-Module ./.script/ConvertAnalyticsRuleFromYamlToArm.ps1
 
